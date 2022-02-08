@@ -33,13 +33,13 @@ module.exports = {
 
         if(houses[index].price === 2,000,000 && type === `plus`){
             res.status(400).send(`Cannot go above $2m USD`)
-        }else if(houses[index].price === 50,000 && type === `minus`){
+        }else if(houses[index].price <= 10000 && type === `minus`){
             res.status(400).send(`Cannot go below $50,000 USD`)
         }else if(type === `plus`){
             houses[index].price+=10000
             res.status(200).send(houses)
         }else if(type === `minus`){
-            house[index].price-=10000
+            houses[index].price-=10000
             res.status(200).send(houses)
         }else{
             res.status(400).send(`You messed up somewhere`)
